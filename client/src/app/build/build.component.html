@@ -1,12 +1,32 @@
-<!--<mwl-demo-utils-calendar-header [(view)]="view"
-                                [(viewDate)]="viewDate">
-</mwl-demo-utils-calendar-header>-->
+<div class="row text-center">
+  <div class="col-md-4">
+    <div class="btn-group">
+      <button class="btn btn-primary" (click)="decrement()" [disabled]="prevBtnDisabled">
+        Previous
+      </button>
+      <button class="btn btn-outline-secondary" (click)="today()">
+        Today
+      </button>
+      <button class="btn btn-primary" (click)="increment()" [disabled]="nextBtnDisabled">
+        Next
+      </button>
+    </div>
+  </div>
 
-<!--<context-menu #basicMenu>
-  <ng-template contextMenuItem (execute)="addEvent($event.item)">
-    Add event
-  </ng-template>
-</context-menu>-->
+  <div class="col-md-4">
+    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+  </div>
+
+  <div class="col-md-4">
+    <div class="btn-group">
+      <div class="btn btn-primary" (click)="changeView('month')" [class.active]="view === 'month'">Month</div>
+      <div class="btn btn-primary" (click)="changeView('week')" [class.active]="view === 'week'">Week</div>
+      <div class="btn btn-primary" (click)="changeView('day')" [class.active]="view === 'day'">Day</div>
+    </div>
+  </div>
+</div>
+
+<br>
 
 <ng-template #monthCellTemplate
              let-day="day"
@@ -17,7 +37,7 @@
              let-unhighlightDay="unhighlightDay"
              let-eventClicked="eventClicked">
 
-  <div class="fill-height" >
+  <div class="fill-height">
     <div class="cal-cell-top">
       <span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{ day.badgeTotal }}</span>
       <span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
@@ -69,8 +89,7 @@
                            [refresh]="refresh"
                            [cellTemplate]="monthCellTemplate"
                            (eventTimesChanged)="eventTimesChanged($event)"
-                           [activeDayIsOpen]="true"
-                           >
+                           [activeDayIsOpen]="true">
   </mwl-calendar-month-view>
 
   <mwl-calendar-week-view *ngSwitchCase="'week'"
