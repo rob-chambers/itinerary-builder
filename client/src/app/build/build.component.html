@@ -1,3 +1,8 @@
+<div class="alert alert-info">
+  Click on a day on the view.  
+  <strong *ngIf="clickedDate">You clicked on this day: {{ clickedDate | date:'medium' }}</strong>
+</div>
+
 <div class="row text-center">
   <div class="col-md-4">
     <div class="btn-group">
@@ -26,7 +31,7 @@
   </div>
 </div>
 
-<br>
+<hr />
 
 <ng-template #monthCellTemplate
              let-day="day"
@@ -89,7 +94,8 @@
                            [refresh]="refresh"
                            [cellTemplate]="monthCellTemplate"
                            (eventTimesChanged)="eventTimesChanged($event)"
-                           [activeDayIsOpen]="true">
+                           [activeDayIsOpen]="true"
+                           (dayClicked)="clickedDate = $event.day.date; open()">
   </mwl-calendar-month-view>
 
   <mwl-calendar-week-view *ngSwitchCase="'week'"

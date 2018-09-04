@@ -1,0 +1,46 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add a flight</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-4 glyphicon glyphicon-tag">Title</div>
+    <input class="col-md-8" type="text" maxlength="50" />
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 glyphicon glyphicon-calendar">Date</div>
+    <input class="col-md-8" type="date" />
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 glyphicon glyphicon-time">Time</div>
+    <input class="col-md-8" type="time" />
+  </div>
+
+  <!--<div class="row">
+    <div class="col-md-2 glyphicon glyphicon-time"></div>
+    <div class="col-md-4">Departing</div>
+    <input class="col-md-6" type="text" maxlength="30" />
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 glyphicon glyphicon-time"></div>
+    <div class="col-md-4">Arriving</div>
+    <input class="col-md-6" type="text" maxlength="30" />
+  </div>-->
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>
+
+<p>
+  You can pass an existing component as content of the modal window. In this case remember to add content component
+  as an <code>entryComponents</code> section of your <code>NgModule</code>.
+</p>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button>

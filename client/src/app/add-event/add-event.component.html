@@ -1,0 +1,36 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add Event</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-4 glyphicon glyphicon-plane">Flight</div>
+    <input class="col-md-8" type="text" maxlength="50" />
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 glyphicon glyphicon-calendar">Accommodation</div>
+    <input class="col-md-8" type="date" />
+  </div>
+
+  <!--<form>
+    <div class="form-group">
+      <label for="dateOfBirth">Date of birth</label>
+      <div class="input-group">
+        <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>
+
+    <div>Date that was clicked: {{clickedDate}}</div>
+  </form>-->
+
+  <p>You clicked on date: {{startDate}}!</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

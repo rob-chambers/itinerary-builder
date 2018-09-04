@@ -1,7 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CalendarEvent, CalendarMonthViewDay, CalendarEventTimesChangedEvent } from 'angular-calendar';
 import { Subject } from 'rxjs';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 //import { colors } from '../demo-utils/colors';
+import { AddEventComponent } from '../add-event/add-event.component';
+
 import {
   subMonths,
   addMonths,
@@ -16,6 +19,7 @@ import {
   startOfDay,
   endOfDay
 } from 'date-fns';
+
 
 type CalendarPeriod = 'day' | 'week' | 'month';
 
@@ -74,7 +78,7 @@ export class BuildComponent {
     }
   };
 
-  constructor() {
+  constructor(private modalService: NgbModal) {
     var d = new Date();
     var year = d.getFullYear();
     var month = d.getMonth();
@@ -85,17 +89,7 @@ export class BuildComponent {
 
     this.dateOrViewChanged();
   }
-
-
-
-  //view: string = 'month';
-
-  //viewDate: Date = new Date();
-
-  //events: CalendarEvent[] = [];
-
-  //refresh: Subject<any> = new Subject();
-
+  
   //addEvent(date: Date): void {
   //  this.events.push({
   //    start: date,
@@ -105,22 +99,54 @@ export class BuildComponent {
   //  this.refresh.next();
   //}
 
+  closeResult: string;
   view: CalendarPeriod = 'month';
   viewDate: Date = new Date();
   minDate: Date = new Date(this.viewDate);
   maxDate: Date;
+  clickedDate: Date;
+
+  open() {
+    const modalRef = this.modalService.open(AddEventComponent);
+    modalRef.componentInstance.startDate = this.clickedDate;
+
+    //modalRef.result.then((result) => {
+    //  this.closeResult = `Closed with: ${result}`;
+    //}, (reason) => {
+    //  this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    //  });    
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
 
   events: CalendarEvent[] = [
     {
-      title: 'Draggable event',
+      title: 'Depart Heathrow Terminal 4',
       color: this.colors.yellow,
       start: new Date(),
-      draggable: true
+      draggable: true,
+      resizable: {
+        beforeStart: true, // this allows you to configure the sides the event is resizable from
+        afterEnd: true
+      }
     },
     {
-      title: 'A non draggable event',
+      title: 'All day party',
       color: this.colors.blue,
-      start: new Date()
+      start: addPeriod('day', new Date(), 1),
+      allDay: true,
+      resizable: {
+        beforeStart: true, // this allows you to configure the sides the event is resizable from
+        afterEnd: true
+      }
     }
   ];
 
@@ -187,5 +213,4 @@ export class BuildComponent {
       }
     });
   }
-
 }

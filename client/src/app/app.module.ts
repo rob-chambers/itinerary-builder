@@ -7,24 +7,30 @@ import { AppComponent } from './app.component';
 import { BuildComponent } from './build/build.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { FlightComponent } from './flight/flight.component';
+import { AddEventComponent } from './add-event/add-event.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BuildComponent
+    BuildComponent,
+    FlightComponent,
+    AddEventComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CalendarModule.forRoot()
+    CalendarModule.forRoot(),
+    NgbModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
-
-  // declarations: [DemoComponent],
-  // exports: [DemoComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    NgbActiveModal,
+  ],
+  entryComponents: [AddEventComponent]
 })
 export class AppModule { }
 

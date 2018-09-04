@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\client",
+    "\\client\\node_modules\\angular-calendar\\css",
+    "\\client\\node_modules\\bootstrap",
+    "\\client\\node_modules\\bootstrap\\dist",
+    "\\client\\node_modules\\bootstrap\\dist\\js",
+    "\\client\\src",
+    "\\client\\src\\app",
+    "\\client\\src\\app\\build",
+    "\\client\\src\\app\\flight"
+  ],
+  "SelectedNode": "\\client\\src\\app\\build\\build.component.ts",
+  "PreviewInSolutionExplorer": false
+}
