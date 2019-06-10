@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { faPlane, faHotel, faBinoculars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-add-event',
@@ -11,4 +12,8 @@ export class AddEventComponent {
   constructor(public activeModal: NgbActiveModal) { }
 
   @Input() startDate;
+
+  faPlane = faPlane;
+  faHotel = faHotel;
+  faBinoculars = faBinoculars;
 }

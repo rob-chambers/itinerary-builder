@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\client",
-    "\\client\\node_modules\\angular-calendar\\css",
-    "\\client\\node_modules\\bootstrap",
-    "\\client\\node_modules\\bootstrap\\dist",
-    "\\client\\node_modules\\bootstrap\\dist\\js",
+    "\\client\\e2e\\src",
     "\\client\\src",
     "\\client\\src\\app",
+    "\\client\\src\\app\\add-event",
     "\\client\\src\\app\\build",
-    "\\client\\src\\app\\flight"
+    "\\client\\src\\app\\directives",
+    "\\client\\src\\app\\flight",
+    "\\client\\src\\assets"
   ],
-  "SelectedNode": "\\client\\src\\app\\build\\build.component.ts",
+  "SelectedNode": "\\client\\src\\styles.css",
   "PreviewInSolutionExplorer": false
 }

@@ -10,6 +10,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FlightComponent } from './flight/flight.component';
 import { AddEventComponent } from './add-event/add-event.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddEventComponent } from './add-event/add-event.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ],
   bootstrap: [AppComponent],
   providers: [
